@@ -38,14 +38,25 @@ public struct ActionButton<Label: View>: View {
     }
 }
 
-// Text init
+// Inits
 @available(iOS 15.0, *)
 extension ActionButton where Label == Text {
     public init(
         _ title: String,
-        action: @escaping () async -> Void
+        action: @escaping () async throws -> Void
     ) {
         self.label = { Text(title) }
         self.action = action
+    }
+}
+
+@available(iOS 15.0, *)
+extension ActionButton {
+    public init(
+        _ action: @escaping () async throws -> Void,
+        @ViewBuilder label: @escaping () -> Label
+    ) {
+        self.action = action
+        self.label = label
     }
 }
