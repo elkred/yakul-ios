@@ -3,16 +3,15 @@ import SwiftUI
 @available(iOS 15.0, *)
 public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     
-    @State public var isLoading = false
+    @State private var isLoading = false
     
-    public var gradient: AngularGradient {
-        .init(
+    private var gradient: AngularGradient = .init(
             gradient: Gradient(colors: [.black, .black.opacity(0)]),
             center: .center,
             startAngle: .degrees(270),
             endAngle: .degrees(0)
         )
-    }
+    
 
     public func makeBody(configuration: Configuration) -> some View {
         return ZStack {
