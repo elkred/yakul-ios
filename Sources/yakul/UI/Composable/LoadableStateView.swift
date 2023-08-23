@@ -2,9 +2,9 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 public struct LoadableStateView<Content: View, T: Collection>: View {
-    let state: LoadableViewState<T>
-    let content: (T) -> Content
-    let retry: () -> Void
+    public let state: LoadableViewState<T>
+    public let content: (T) -> Content
+    public let retry: () -> Void
 
     public var body: some View {
         switch state {
@@ -53,7 +53,7 @@ public enum LoadableViewState<T> {
     case content(T)
     case failure(Error)
     
-    var value: T? {
+    public var value: T? {
         guard case .content(let t) = self else {
             return nil
         }

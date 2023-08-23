@@ -2,7 +2,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 public struct LoadingViewModifier: ViewModifier {
-    @Binding var isLoading: Bool
+    @Binding public var isLoading: Bool
     
     public func body(content: Content) -> some View {
         content

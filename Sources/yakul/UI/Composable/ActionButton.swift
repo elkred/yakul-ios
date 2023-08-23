@@ -2,8 +2,8 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 public struct ActionButton<Label: View>: View {
-    var action: () async throws -> Void
-    @ViewBuilder var label: () -> Label
+    public var action: () async throws -> Void
+    @ViewBuilder public var label: () -> Label
 
     @State private var isPerformingTask = false
     @State private var error: Error?
@@ -41,7 +41,7 @@ public struct ActionButton<Label: View>: View {
 // Text init
 @available(iOS 15.0, *)
 extension ActionButton where Label == Text {
-    init(
+    public init(
         _ title: String,
         action: @escaping () async -> Void
     ) {
