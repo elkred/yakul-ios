@@ -5,7 +5,7 @@ public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     
     @State public var isLoading = false
     
-    private var gradient: AngularGradient {
+    public var gradient: AngularGradient {
         .init(
             gradient: Gradient(colors: [.black, .black.opacity(0)]),
             center: .center,
