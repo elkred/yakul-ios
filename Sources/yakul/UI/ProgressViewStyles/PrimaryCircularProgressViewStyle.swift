@@ -3,6 +3,8 @@ import SwiftUI
 @available(iOS 15.0, *)
 public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     
+    public init() { }
+    
     @State private var isLoading = false
     
     private var gradient: AngularGradient = .init(
