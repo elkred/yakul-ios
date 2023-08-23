@@ -25,7 +25,9 @@ public struct ActionButton<Label: View>: View {
                 if isPerformingTask {
                     HStack {
                         Spacer()
-                        ProgressView().tint(.primary)
+                        ProgressView()
+                            .tint(.primary)
+                            .padding()
                         Spacer()
                     }
                 } else {
