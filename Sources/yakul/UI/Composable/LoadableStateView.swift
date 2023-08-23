@@ -11,7 +11,7 @@ public struct LoadableStateView<Content: View, T: Collection>: View {
         case .loading:
             VStack {
                 Spacer()
-                ProgressView().progressViewStyle(CircularProgressViewStyle())
+                ProgressView()
                 Spacer()
             }
         case .content(let value):

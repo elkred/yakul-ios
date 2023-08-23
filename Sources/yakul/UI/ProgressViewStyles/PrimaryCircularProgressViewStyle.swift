@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct CircularProgressViewStyle: ProgressViewStyle {
+public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     
     @State private var isLoading = false
     
