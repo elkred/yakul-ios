@@ -51,3 +51,14 @@ extension ActionButton where Label == Text {
         self.action = action
     }
 }
+
+@available(iOS 15.0, *)
+extension ActionButton {
+    public init(
+        _ action: @escaping () async throws -> Void,
+        @ViewBuilder label: @escaping () -> Label
+    ) {
+        self.action = action
+        self.label = label
+    }
+}
