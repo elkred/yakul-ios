@@ -1,2 +1,3 @@
-# yakul-ios
- Core package for iOS products.
+# yakul
+
+The core iOS framework for RedElk Innovations.
