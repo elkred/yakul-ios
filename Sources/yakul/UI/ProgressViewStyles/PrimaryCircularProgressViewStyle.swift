@@ -18,8 +18,7 @@ public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     public func makeBody(configuration: Configuration) -> some View {
         return ZStack {
             Circle()
-                .stroke(gradient, style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                .frame(maxWidth: 75, maxHeight: 75)
+                .stroke(gradient, style: StrokeStyle(lineWidth: 2, lineCap: .round))
                 .rotationEffect(.degrees(isLoading ? 360 : 0))
                 .onAppear {
                     withAnimation(
