@@ -22,16 +22,11 @@ public struct ActionButton<Label: View>: View {
                 }
             },
             label: {
-                if isPerformingTask {
-                    HStack {
-                        Spacer()
+                ZStack {
+                    if isPerformingTask {
                         ProgressView()
-                            .tint(.primary)
-                            .padding()
-                        Spacer()
                     }
-                } else {
-                    label()
+                    label().opacity(isPerformingTask ? 0 : 1)
                 }
             }
         )
