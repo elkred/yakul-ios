@@ -79,16 +79,16 @@ extension ActionButton where ButtonLabel == Label<Text, Image> {
     ///
     /// - Parameters:
     ///   - title: The title of this button.
-    ///   - systemImageName: A system image name corresponding to an `SF Symbols` asset.
+    ///   - systemImage: A system image name corresponding to an `SF Symbols` asset.
     ///   - role: The role of this action. `nil` if no specific role.
     ///   - action: An async throwing action closure to send the action via.
     public init(
         _ title: String,
-        systemImageName: String,
+        systemImage: String,
         role: ButtonRole? = nil,
         action: @escaping () async throws -> Void
     ) {
-        self.label = { Label(title, systemImage: systemImageName) }
+        self.label = { Label(title, systemImage: systemImage) }
         self.role = role
         self.action = action
     }
@@ -101,7 +101,7 @@ extension ActionButton where ButtonLabel == Label<Text, Image> {
         }
         .buttonStyle(.bordered)
         
-        ActionButton("Title And Image", systemImageName: "speaker.wave.3") {
+        ActionButton("Title And Image", systemImage: "speaker.wave.3") {
             try await Task.sleep(nanoseconds: 1_000_000_000)
         }
         .buttonStyle(.borderedProminent)
@@ -124,7 +124,7 @@ extension ActionButton where ButtonLabel == Label<Text, Image> {
         }
         .buttonStyle(.bordered)
         
-        ActionButton("Failing Action", systemImageName: "xmark") {
+        ActionButton("Failing Action", systemImage: "xmark") {
             try await Task.sleep(nanoseconds: 1_000_000_000)
             throw UnknownError()
         }
