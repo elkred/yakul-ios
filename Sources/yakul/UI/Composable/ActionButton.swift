@@ -97,17 +97,17 @@ extension ActionButton where ButtonLabel == Label<Text, Image> {
 #Preview {
     VStack {
         ActionButton("Title Only") {
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
         }
         .buttonStyle(.bordered)
         
         ActionButton("Title And Image", systemImageName: "speaker.wave.3") {
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
         }
         .buttonStyle(.borderedProminent)
         
         ActionButton {
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
         } label: {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
@@ -125,18 +125,18 @@ extension ActionButton where ButtonLabel == Label<Text, Image> {
         .buttonStyle(.bordered)
         
         ActionButton("Failing Action", systemImageName: "xmark") {
-            try await Task.sleep(for: .seconds(1))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
             throw UnknownError()
         }
         .buttonStyle(.borderedProminent)
         
         ActionButton("Destructive Action", role: .destructive) {
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
         }
         .buttonStyle(.borderedProminent)
         
         ActionButton("Cancel Action", role: .cancel) {
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(nanoseconds: 1_000_000_000)
         }
         .buttonStyle(.borderedProminent)
     }
