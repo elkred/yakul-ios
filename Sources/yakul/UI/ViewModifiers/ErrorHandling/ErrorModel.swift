@@ -57,12 +57,12 @@ struct ErrorModel {
 
 /// Default error in rare cases.
 /// **There should be none of these if we can help it!**
-struct UnknownError: LocalizedError {
-    var failureReason: String? {
+public struct UnknownError: LocalizedError {
+    public var failureReason: String? {
         return "Error"
     }
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         return "Please try again."
     }
 }
