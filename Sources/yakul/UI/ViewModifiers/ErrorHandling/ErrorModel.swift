@@ -58,6 +58,9 @@ struct ErrorModel {
 /// Default error in rare cases.
 /// **There should be none of these if we can help it!**
 public struct UnknownError: LocalizedError {
+    
+    public init() { }
+    
     public var failureReason: String? {
         return "Error"
     }
