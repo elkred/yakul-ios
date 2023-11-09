@@ -46,7 +46,6 @@ public struct ActionButton<ButtonLabel: View>: View {
             }
             .padding(.vertical)
         }
-        .font(.headline)
         .disabled(isPerformingTask)
         .alert($error)
     }
