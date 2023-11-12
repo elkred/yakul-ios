@@ -3,7 +3,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 
 /// A modifier so that you can magnify a view by pinching to zoom.
-struct PinchZoomViewModifier: ViewModifier {
+public struct PinchZoomViewModifier: ViewModifier {
     
     // MARK: - Private State
     
@@ -11,7 +11,7 @@ struct PinchZoomViewModifier: ViewModifier {
 
     // MARK: - Body
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .scaleEffect(zoom)
             .gesture(
@@ -25,7 +25,7 @@ struct PinchZoomViewModifier: ViewModifier {
 
 extension View {
     @available(iOS 17.0, *)
-    func pinchToZoom() -> some View {
+    public func pinchToZoom() -> some View {
         modifier(PinchZoomViewModifier())
     }
 }
