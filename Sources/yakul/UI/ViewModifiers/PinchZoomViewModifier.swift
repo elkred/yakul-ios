@@ -2,22 +2,17 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 
-/// An image that you can magnify by pinching to zoom.
-struct PinchZoomImage: View {
-    
-    // MARK: - Init
-    
-    var image: ImageResource
+/// A modifier so that you can magnify a view by pinching to zoom.
+struct PinchZoomViewModifier: ViewModifier {
     
     // MARK: - Private State
     
     @GestureState private var zoom = 1.0
-    
+
     // MARK: - Body
     
-    var body: some View {
-        Image(image)
-            .resizable()
+    func body(content: Content) -> some View {
+        content
             .scaleEffect(zoom)
             .gesture(
                 MagnifyGesture()
@@ -28,10 +23,19 @@ struct PinchZoomImage: View {
     }
 }
 
+extension View {
+    @available(iOS 17.0, *)
+    func pinchToZoom() -> some View {
+        modifier(PinchZoomViewModifier())
+    }
+}
+
 @available(iOS 17.0, *)
 #Preview {
     VStack {
-        PinchZoomImage(image: .example)
+        Image(.example)
+            .resizable()
             .scaledToFit()
+            .pinchToZoom()
     }
 }
