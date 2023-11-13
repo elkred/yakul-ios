@@ -1,3 +1,3 @@
 # yakul
 
-The core iOS framework for RedElk Innovations.
+Shared and useful iOS components.
