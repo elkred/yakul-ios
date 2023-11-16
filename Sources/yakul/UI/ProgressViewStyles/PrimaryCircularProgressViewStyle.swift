@@ -3,6 +3,8 @@ import SwiftUI
 /// The primary circular progress view style for `yakul`.
 public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
     
+    public init() { }
+    
     // MARK: - Private State
     
     @State private var isLoading = false
