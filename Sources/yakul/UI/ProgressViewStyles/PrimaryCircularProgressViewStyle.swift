@@ -17,7 +17,7 @@ public struct PrimaryCircularProgressViewStyle: ProgressViewStyle {
                 .stroke(gradient, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                 .frame(maxWidth: 60, maxHeight: 60)
                 .rotationEffect(.degrees(isLoading ? 360 : 0))
-                .onAppear {
+                .task {
                     withAnimation(
                         Animation
                             .linear(duration: 1)
