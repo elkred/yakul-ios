@@ -10,12 +10,22 @@ public struct LoadingViewModifier: ViewModifier {
     
     public func body(content: Content) -> some View {
         content
+            .disabled(isLoading)
             .overlay {
                 isLoading
-                    ? ProgressView()
+                    ? LoadingAnimation()
                     : nil
             }
         
+    }
+}
+
+struct LoadingAnimation: View {
+    var body: some View {
+        ZStack {
+            Color.gray.opacity(0.5).ignoresSafeArea()
+            ProgressView()
+        }
     }
 }
 
