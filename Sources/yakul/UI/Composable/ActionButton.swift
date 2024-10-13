@@ -6,13 +6,29 @@ public struct ActionButton<ButtonLabel: View>: View {
     // MARK: - Standard Init
     
     /// The role of this action. `nil` if no specific role.
-    public var role: ButtonRole? = nil
+    private var role: ButtonRole? = nil
     
     /// An async throwing action closure to send the action via.
-    public var action: () async throws -> Void
+    private var action: () async throws -> Void
     
     /// A closure allowing the button to be configured based on the view past into it.
-    @ViewBuilder public var label: () -> ButtonLabel
+    @ViewBuilder private var label: () -> ButtonLabel
+    
+    /// Default init to allow any view to be passed in.
+    ///
+    /// - Parameters:
+    ///   - role: The role of this action. `nil` if no specific role.
+    ///   - action: An async throwing action closure to send the action via.
+    ///   - label: The view which fills the button label.
+    public init(
+        role: ButtonRole? = nil,
+        action: @escaping () async throws -> Void,
+        label: @escaping () -> ButtonLabel
+    ) {
+        self.label = label
+        self.role = role
+        self.action = action
+    }
     
     // MARK: - Private State
     
@@ -51,7 +67,7 @@ public struct ActionButton<ButtonLabel: View>: View {
     }
 }
 
-// Convenience Inits
+// MARK: - Convenience Inits
 
 extension ActionButton where ButtonLabel == Text {
     
