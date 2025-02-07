@@ -19,7 +19,7 @@ public struct NoticeCard: View {
         headline: String = "Example Headline",
         subheadline: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         footnote: String? = "Note: This is a sample notice card.",
-        canHide: Bool = false
+        canHide: Bool = true
     ) {
         self.header = header
         self.headline = headline
