@@ -9,28 +9,36 @@ import SwiftUI
 
 public struct NoticeCard: View {
     
+    // MARK: - Init
+
     private let header: String
+    private let systemIconName: String?
     private let headline: String
     private let subheadline: String
     private let footnote: String?
+    private let canHide: Bool
     
     public init(
         header: String = "Example Header",
+        systemIconName: String? = nil,
         headline: String = "Example Headline",
         subheadline: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         footnote: String? = "Note: This is a sample notice card.",
         canHide: Bool = true
     ) {
         self.header = header
+        self.systemIconName = systemIconName
         self.headline = headline
         self.subheadline = subheadline
         self.footnote = footnote
         self.canHide = canHide
     }
     
-    var canHide = false
+    // MARK: - Private State
     
     @State private var isHidden = false
+    
+    // MARK: - Body
     
     public var body: some View {
         if !isHidden {
@@ -58,10 +66,12 @@ public struct NoticeCard: View {
                 }
                 
                 HStack(alignment: .top) {
-                    VStack(spacing: 16) {
-                        Image(systemName: "heart.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.pink)
+                    if let systemIconName {
+                        VStack(spacing: 16) {
+                            Image(systemName: systemIconName)
+                                .font(.title)
+                                .foregroundColor(.pink)
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 16) {
