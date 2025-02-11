@@ -33,67 +33,34 @@ public struct NoticeCard: View {
         self.footnote = footnote
         self.canHide = canHide
     }
-    
-    // MARK: - Private State
-    
-    @State private var isHidden = false
-    
+
     // MARK: - Body
     
     public var body: some View {
-        if !isHidden {
-            VStack(alignment: .leading, spacing: 0) {
-                VStack(spacing: 0) {
-                    HStack {
-                        Text(header)
-                        
-                        Spacer()
-                        
-                        if canHide {
-                            Button("Close", systemImage: "xmark") {
-                                withAnimation { isHidden = true }
-                            }
-                            .labelStyle(.iconOnly)
-                        }
-                    }
-                    .foregroundStyle(.secondary)
-                    .font(.footnote)
-                    .bold()
-                    .textCase(.uppercase)
-                    .padding()
-                    
-                    Divider()
-                }
-                
-                HStack(alignment: .top) {
-                    if let systemIconName {
-                        VStack(spacing: 16) {
-                            Image(systemName: systemIconName)
-                                .font(.title)
-                                .foregroundColor(.pink)
-                        }
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text(headline)
-                            .font(.headline)
-                        
-                        Text(subheadline)
-                            .font(.subheadline)
-                        
-                        if let footnote {
-                            Text(footnote)
-                                .foregroundColor(.secondary)
-                                .font(.caption)
-                        }
+        SectionedCard(header: header, canHide: canHide) {
+            HStack(alignment: .top) {
+                if let systemIconName {
+                    VStack(spacing: 16) {
+                        Image(systemName: systemIconName)
+                            .font(.title)
+                            .foregroundColor(.pink)
                     }
                 }
-                .padding()
                 
-                
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(headline)
+                        .font(.headline)
+                    
+                    Text(subheadline)
+                        .font(.subheadline)
+                    
+                    if let footnote {
+                        Text(footnote)
+                            .foregroundColor(.secondary)
+                            .font(.caption)
+                    }
+                }
             }
-            .background(.thinMaterial)
-            .cornerRadius(16)
             .padding()
         }
     }
