@@ -45,7 +45,7 @@ public struct NoticeCard: View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(spacing: 0) {
                     HStack {
-                        Text("Check-In Completed")
+                        Text(header)
                         
                         Spacer()
                         
