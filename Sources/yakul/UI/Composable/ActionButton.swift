@@ -60,7 +60,6 @@ public struct ActionButton<ButtonLabel: View>: View {
                     .frame(maxWidth: .infinity)
                     .opacity(isPerformingTask ? 0 : 1)
             }
-            .padding(.vertical)
         }
         .disabled(isPerformingTask)
         .alert($error)
