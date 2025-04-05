@@ -1,14 +1,14 @@
 import Foundation
 
 /// Model used to parse and process errors of all types.
-struct ErrorModel {
+public struct ErrorModel {
     
     // MARK: - Init
     
     /// Main Init
     ///
     /// - Parameter error: The error to be parsed.
-    init(_ error: Error?) {
+    public init(_ error: Error?) {
         guard let error = error as? LocalizedError else {
             if let localizedDescription = error?.localizedDescription {
                 self.init(customMessage: localizedDescription)
@@ -25,7 +25,7 @@ struct ErrorModel {
     /// or it can be used to simply display custom messages in an error if you don't want to create a type.
     ///
     /// - Parameter customMessage: The message to be displayed in the error.
-    init(customMessage: String) {
+    public init(customMessage: String) {
         self.title = "Error"
         self.message = customMessage
     }
@@ -41,14 +41,14 @@ struct ErrorModel {
     
     // MARK: - Properties
     
-    let title: String
-    let message: String
+    public let title: String
+    public let message: String
     
     
     // MARK: - Helpers
     
     /// A single line error description.
-    var description: String {
+    public var description: String {
         return title.isEmpty
             ? message
             : "\(title)\n\(message)"
