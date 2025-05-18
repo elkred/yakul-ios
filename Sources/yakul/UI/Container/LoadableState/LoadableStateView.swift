@@ -1,18 +1,19 @@
 import Foundation
 import SwiftUI
 
+/// A view which takes in a loading state, and produces state depedent UI. (i.e. `loading`, `content`, or `failure`).
 public struct LoadableStateView<Content: View, T>: View {
     
     // MARK: - Init
 
-    private let state: LoadableViewState<T>
+    private let state: LoadingState<T>
     private let emptyContentTitle: String
     private let retryActionTitle: String
     @ViewBuilder private let content: (T) -> Content
     private let retry: () -> Void
     
     public init(
-        state: LoadableViewState<T>,
+        state: LoadingState<T>,
         emptyContentTitle: String = "No Results",
         retryActionTitle: String = "Retry?",
         content: @escaping (T) -> Content,
@@ -62,22 +63,6 @@ public struct LoadableStateView<Content: View, T>: View {
             Spacer()
         }
         .multilineTextAlignment(.center)
-    }
-}
-
-// MARK: - Model
-
-public enum LoadableViewState<T> {
-    case loading
-    case content(T)
-    case failure(Error)
-    
-    public var value: T? {
-        guard case .content(let t) = self else {
-            return nil
-        }
-
-        return t
     }
 }
 
