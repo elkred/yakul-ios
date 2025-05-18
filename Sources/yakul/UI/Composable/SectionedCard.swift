@@ -1,10 +1,3 @@
-//
-//  SectionedCard.swift
-//  yakul
-//
-//  Created by Galen Quinn on 2/11/25.
-//
-
 import SwiftUI
 
 public struct SectionedCard<CardContent: View>: View {

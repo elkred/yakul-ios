@@ -1,10 +1,3 @@
-//
-//  NoticeCard.swift
-//  yakul
-//
-//  Created by Galen Quinn on 2/7/25.
-//
-
 import SwiftUI
 
 public struct NoticeCard: View {
