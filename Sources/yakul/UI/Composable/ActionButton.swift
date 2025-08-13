@@ -58,6 +58,7 @@ public struct ActionButton<ButtonLabel: View>: View {
                 }
                 label()
                     .frame(maxWidth: .infinity)
+                    .contentShape(Rectangle())
                     .opacity(isPerformingTask ? 0 : 1)
             }
         }
