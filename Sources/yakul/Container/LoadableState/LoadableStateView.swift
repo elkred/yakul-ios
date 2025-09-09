@@ -16,7 +16,7 @@ public struct LoadableStateView<Content: View, T>: View {
         state: LoadingState<T>,
         emptyContentTitle: String = "No Results",
         retryActionTitle: String = "Retry?",
-        content: @escaping (T) -> Content,
+        @ViewBuilder content: @escaping (T) -> Content,
         retry: @escaping () -> Void
     ) {
         self.state = state

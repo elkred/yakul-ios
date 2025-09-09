@@ -16,7 +16,7 @@ public struct NoticeCard: View {
         systemIconName: String? = nil,
         headline: String = "Example Headline",
         subheadline: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        footnote: String? = "Note: This is a sample notice card.",
+        footnote: String? = nil,
         canHide: Bool = true
     ) {
         self.header = header
