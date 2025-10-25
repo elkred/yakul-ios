@@ -25,7 +25,11 @@ struct LoadingAnimation: View {
         ZStack {
             Color.gray.opacity(0.5).ignoresSafeArea()
             ProgressView()
+                .controlSize(.large)
+                .padding(50)
+                .background(.background, in: RoundedRectangle(cornerRadius: 20))
         }
+        
     }
 }
 
@@ -42,9 +46,12 @@ extension View {
 
 #Preview {
     VStack {
-        Text("Example Loader")
+        HStack {
+            Spacer()
+            Text("Example Loader")
+            Spacer()
+        }
         Spacer()
     }
     .loader(.constant(true))
-    .progressViewStyle(PrimaryCircularProgressViewStyle())
 }
